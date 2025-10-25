@@ -79,12 +79,14 @@ jobs:
     - name: Bootstrap
       shell: freebsd {0}
       run: |
+        cd $GITHUB_WORKSPACE
         pwd
         ls -R
         autoreconf -i
     - name: configure out-of-source
       shell: freebsd {0} 
       run: |
+        cd $GITHUB_WORKSPACE
         cd ..
         mkdir build
         cd build
@@ -92,8 +94,10 @@ jobs:
     - name: make
       shell: freebsd {0}
       run: |
+        cd $GITHUB_WORKSPACE/../build
         make
     - name: make check
       shell: freebsd {0}
       run: |
+        cd $GITHUB_WORKSPACE/../build
         make check
