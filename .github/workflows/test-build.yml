@@ -79,6 +79,8 @@ jobs:
     - name: Bootstrap
       shell: freebsd {0}
       run: |
+        pwd
+        ls
         autoreconf -i
     - name: configure out-of-source
       shell: freebsd {0} 
