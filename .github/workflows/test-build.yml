@@ -64,3 +64,21 @@ jobs:
       run: make check
     - name: make install
       run: sudo make install
+
+  freebsd-build:
+    runs-on: ubuntu-latest
+    name: Xastir build under FreeBSD VM
+    steps:
+    - uses: actions/checkout@v4
+    - name: Complete build
+      uses: vmactions/freebsd-vm@v1
+      with:
+        usesh: true
+        prepare: |
+          pkg install -y devel/autoconf devel/automake print/freetype2 graphics/jasper graphics/jbigkit graphics/lcms2 graphics/png devel/shapelib graphics/tiff graphics/webp graphics/libwmf devel/pcre2 graphics/libjxl graphics/libjxl graphics/GraphicsMagick graphics/libgeotiff ftp/curl databases/db18 lang/gcc13
+        run: |
+          autoreconf -i
+          ./configure --with-bdb-incdir=/usr/local/include/db18 --with-bdb-libdir=/usr/local/lib CFLAGS="-O2 -g" CC=gcc13 CXX=g++13
+          make
+          make check
+          sudo make install
