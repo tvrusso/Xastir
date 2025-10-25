@@ -80,8 +80,6 @@ jobs:
       shell: freebsd {0}
       run: |
         cd $GITHUB_WORKSPACE
-        pwd
-        ls -R
         autoreconf -i
     - name: configure out-of-source
       shell: freebsd {0} 
