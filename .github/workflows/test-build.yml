@@ -90,7 +90,7 @@ jobs:
       shell: freebsd {0}
       run: |
         make
-    -name: make check
+    - name: make check
       shell: freebsd {0}
       run: |
         make check
