@@ -67,7 +67,6 @@ jobs:
 
   freebsd-build:
     runs-on: ubuntu-latest
-    name: Xastir build under FreeBSD VM
     steps:
     - uses: actions/checkout@v4
     - name: Complete build
