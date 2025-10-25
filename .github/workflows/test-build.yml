@@ -80,7 +80,7 @@ jobs:
       shell: freebsd {0}
       run: |
         pwd
-        ls
+        ls -R
         autoreconf -i
     - name: configure out-of-source
       shell: freebsd {0} 
